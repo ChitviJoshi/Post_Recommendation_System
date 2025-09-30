@@ -39,7 +39,31 @@ The system generates recommendations through a multi-stage pipeline that analyze
 ### 💡 Methodology Flowchart
 The core logic of the project is broken down into several key stages:
 
-<img src="https://mermaid.ink/img/pako:eNplkMFuwjAURH_F8iuLCwUS0jZtJdJOSbADlziYpCmxI7YTKiL-na-QtE3bL9-599x7d-AK4xQk4d_ABkE5m_2o8hW2q8z7T4Y1QhN8k7rYlA6m8yQ4j2K1Fq9Z0i0y7D6t8T6A7b5tJ-9R1bV1i1dZ14FfKxK89s_H4V931F_U2A4Bw8eUvQ-X5lUq4n-rVvJ8Y2pB8YnE-d4hPqRck17iN81Nknu2BvH84v6-BvD-0v6-pXl_J_b_iL_iYFjS_uJm_88_Qe5xS5D9E74_mH_3xL1gB2kU0T0k2kU2lP0s9kX0g8kH0g9k3-g8kH0g9kP3p_kX-g8QG2U_S_k" alt="Methodology Flowchart">
+```
+┌───────────────────────────────────┐
+│           Data Loading            │
+└───────────────────────────────────┘
+               │
+               ▼
+┌───────────────────────────────────┐
+│   Exploratory Data Analysis (EDA)   │
+└───────────────────────────────────┘
+               │
+               ▼
+┌───────────────────────────────────┐
+│       Feature Engineering         │
+└───────────────────────────────────┘
+               │
+               ▼
+┌───────────────────────────────────┐
+│  Model Comparison & Hybrid Model  │
+└───────────────────────────────────┘
+               │
+               ▼
+┌───────────────────────────────────┐
+│     Generate Recommendations      │
+└───────────────────────────────────┘
+```
 
 ### 🛠️ The Recommendation Model
 
@@ -75,7 +99,26 @@ The model's performance was evaluated on two key metrics that measure the qualit
 
 ### Evaluation Flowchart
 
-<img src="https://mermaid.ink/img/pako:eNplkU1Lw0AUhf_K1GubGgta0IeIIAgiCFdduzBt22wGk0kmmW6kEP-7G1dUu_s-3HPuPTcHoq0yNBB0b5jJMKd5wS3tU-p9n22p8W40R9Hq4Dk9J5M75QW-0J5H7Z3gQvE43qO25l45q1R22X5iUa2-bU2c943K1W7W0o9D7t-42Jv8L_kYwH5sR_5WjR-r15_L3d_tT54TDPB5_dM6R5s1_iV7n5_K_a-u7rO_T8A_I-g_K-l_T8R_K-l_T9j-o_G_k-jO-D4h_8P-D9h-oP9P-j9j-kP-P-h-D9h-IP-B-h-IP-B-D9D-o_G_8B_I_Wv2w" alt="Evaluation Flowchart">
+```
+┌───────────────────────────────────┐
+│  Top 3 Recommendations per User   │
+└───────────────────────────────────┘
+               │
+┌──────────────┴──────────────┐
+│                             │
+▼                             ▼
+┌───────────────────┐   ┌───────────────────┐
+│ Calculate         │   │ Calculate         │
+│ Discovery Rate    │   │ Catalog Coverage  │
+└───────────────────┘   └───────────────────┘
+│                             │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌───────────────────────────────────┐
+│      Summarize Final Results      │
+└───────────────────────────────────┘
+```
 
 ---
 
@@ -119,7 +162,6 @@ submission/
 - **v1.1** - Incorporate Collaborative Filtering to leverage "similar user" data.
 - **v1.2** - Use advanced NLP (e.g., Word2Vec) for semantic understanding of tags.
 - **v2.0** - Deploy the model as a REST API and build a simple web interface for live recommendations.
-
 ---
 <div align="center">
 
