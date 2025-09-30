@@ -1,99 +1,128 @@
 # Post Recommendation System
 
-This repository contains a sophisticated post recommendation system designed to provide personalized content suggestions to users. The project leverages a hybrid recommendation model that combines content-based filtering, post popularity, and a unique "discovery" score to create a balanced and effective recommendation engine.
+<div align="center">
 
-## 🚀 Project Overview
+*"Connecting Users with Content, Intelligently"*
 
-The primary goal of this project is to recommend the top 3 posts for each user based on their profile interests, past engagement, and the attributes of the content. The system is designed not only to provide relevant recommendations but also to encourage user exploration and prevent the "filter bubble" effect.
+</div>
 
-This is achieved through a multi-faceted approach:
-1.  **Exploratory Data Analysis (EDA)**: A deep dive into the dataset to understand user demographics, content types, and engagement patterns.
-2.  **Model Exploration**: A comparative analysis of three different recommendation models: Content-Based Filtering, SVD (Singular Value Decomposition), and K-Nearest Neighbors (KNN).
-3.  **Hybrid Recommendation Engine**: A final, fine-tuned model that blends multiple recommendation strategies to provide the most relevant, popular, and novel suggestions.
+<div align="center">
 
-## ✨ Features
+[![Python](https://img.shields.io/badge/Python-3.7%2B-blue?style=for-the-badge&logo=python)](https://python.org)
+[![Pandas](https://img.shields.io/badge/Pandas-1.x-blue?style=for-the-badge&logo=pandas)](https://pandas.pydata.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.x-orange?style=for-the-badge&logo=scikit-learn)](https://scikit-learn.org/)
 
-* **Personalized Recommendations**: The core of the system is its ability to tailor recommendations to each user's unique interests.
-* **Hybrid Model**: The final model is a sophisticated blend of:
-    * **Content-Based Filtering**: Using TF-IDF and Cosine Similarity to match user interests with post tags.
-    * **Popularity Score**: Leveraging the engagement rate of posts to recommend trending content.
-    * **Discovery Score**: A unique feature that encourages users to explore new topics beyond their stated interests.
-* **User Segmentation**: The system includes an "exploration score" to segment users into categories like "Power Explorers" and "Loyal Fans," allowing for more targeted recommendation strategies in the future.
-* **Comprehensive Evaluation**: The model's performance is evaluated on key metrics like **Discovery Rate** and **Catalog Coverage**, providing a clear picture of its effectiveness.
+**A hybrid recommendation engine that balances relevance, popularity, and novelty to deliver personalized post recommendations.**
 
-## 📊 The Datasets
+[🚀 How it Works](#-how-it-works) • [📊 Features](#-features) • [📈 Evaluation](#-evaluation) • [⚙️ Setup](#️-setup)
 
-The project utilizes three distinct datasets:
+</div>
 
-* **Users.csv**: Contains user information, including their ID, age, gender, top 3 interests, and a pre-calculated past engagement score.
-* **Posts.csv**: Includes details about each post, such as its ID, the creator's ID, the content type (e.g., video, image), and a list of tags.
-* **Engagements.csv**: A record of user-post interactions, indicating whether a user engaged with a post (1 for engagement, 0 for no engagement).
+---
 
-## 💡 Methodology Flowchart
+## 🎯 Overview
 
-This flowchart illustrates the step-by-step process of the recommendation system.
+This project is a comprehensive implementation of a hybrid recommendation system designed to suggest relevant posts to users. It moves beyond simple content matching by incorporating post popularity and a unique **Discovery Score** to ensure recommendations are not only accurate but also engaging and novel.
 
-[ Data Loading ]
-↓
-[ Exploratory Data Analysis (EDA) ]
-↓
-[ Feature Engineering ]
-|
-+--> [ Model Comparison: Content-Based, SVD, KNN ]
-|
-+--> [ Final Hybrid Model Development ]
-↓
-[ Generate Recommendations ]
+**Why this approach?**
+- ✅ **Balanced Strategy** - Avoids the "filter bubble" by blending user interests with new, popular content.
+- ✅ **Data-Driven** - Leverages EDA and model comparison to justify the final hybrid approach.
+- ✅ **Insightful Metrics** - Evaluated on **Discovery Rate** and **Catalog Coverage** to measure real-world effectiveness.
+- ✅ **Well-Documented** - Includes a full Jupyter notebook and a technical report explaining the methodology.
 
-## 🛠️ The Recommendation Model
+---
+
+## 🚀 How it Works
+
+The system generates recommendations through a multi-stage pipeline that analyzes user and content data to produce a ranked list of suggestions for each user.
+
+### 💡 Methodology Flowchart
+The core logic of the project is broken down into several key stages:
+
+<img src="https://mermaid.ink/img/pako:eNplkMFuwjAURH_F8iuLCwUS0jZtJdJOSbADlziYpCmxI7YTKiL-na-QtE3bL9-599x7d-AK4xQk4d_ABkE5m_2o8hW2q8z7T4Y1QhN8k7rYlA6m8yQ4j2K1Fq9Z0i0y7D6t8T6A7b5tJ-9R1bV1i1dZ14FfKxK89s_H4V931F_U2A4Bw8eUvQ-X5lUq4n-rVvJ8Y2pB8YnE-d4hPqRck17iN81Nknu2BvH84v6-BvD-0v6-pXl_J_b_iL_iYFjS_uJm_88_Qe5xS5D9E74_mH_3xL1gB2kU0T0k2kU2lP0s9kX0g8kH0g9k3-g8kH0g9kP3p_kX-g8QG2U_S_k" alt="Methodology Flowchart">
+
+### 🛠️ The Recommendation Model
 
 The final recommendation engine is a hybrid model that calculates a `final_score` for each potential user-post pair. The formula is as follows:
 
 `final_score = (0.45 * content_score) + (0.35 * popularity_score) + (0.20 * discovery_score)`
 
-* **`content_score`**: This is a measure of how well a post's tags match a user's interests. It is calculated using a TF-IDF vectorizer and cosine similarity.
-* **`popularity_score`**: This score is based on the engagement rate of each post, giving a boost to content that is popular among all users.
-* **`discovery_score`**: A unique and crucial component of the model. It measures the novelty of a post by calculating the proportion of its tags that are *new* to the user. This helps to introduce users to new topics and prevents their recommendations from becoming too narrow.
+- **`content_score`**: Measures how well a post's tags match a user's interests, calculated using TF-IDF and cosine similarity.
+- **`popularity_score`**: Based on the engagement rate of each post, giving a boost to trending content.
+- **`discovery_score`**: A unique component that measures the novelty of a post by calculating the proportion of its tags that are *new* to the user.
 
-## 📈 Evaluation & Results
+---
 
-The model's performance was evaluated on two key metrics that go beyond simple accuracy:
+## 📊 Features
 
-* **Discovery Rate (13.3%)**: This metric measures the percentage of recommended posts that fall outside a user's explicitly stated interests.
-* **Catalog Coverage (30.0%)**: This represents the percentage of all available posts that are recommended to at least one user.
+| Feature | Description |
+|---|---|
+| **Hybrid Scoring** | Blends content similarity, popularity, and novelty for balanced recommendations. |
+| **Model Comparison** | Evaluates Content-Based, SVD, and KNN models to justify the final approach. |
+| **User Segmentation**| Calculates an "exploration score" to segment users (e.g., "Power Explorers"). |
+| **Data Visualization** | Includes comprehensive EDA and results plots for clear insights. |
+
+---
+
+## 📈 Evaluation
+
+The model's performance was evaluated on two key metrics that measure the quality and diversity of the recommendations.
+
+| Metric | Result | Description |
+|---|---|---|
+| **Discovery Rate** | **13.3%** | The percentage of recommended posts that fall outside a user's stated interests. |
+| **Catalog Coverage**| **30.0%** | The percentage of all available posts recommended to at least one user. |
 
 ### Evaluation Flowchart
 
-This flowchart shows how the evaluation metrics were calculated.
-[ Top 3 Recommendations per User ]
-|
-+--> [ For each user: Compare Recs w/ Interests ] --> [ Calculate Discovery Rate ]
-|
-+--> [ Aggregate all Recs & Count Unique Posts ] --> [ Calculate Catalog Coverage ]
-|
-+--------------------------------------------------> [ Summarize Final Results ]
+<img src="https://mermaid.ink/img/pako:eNplkU1Lw0AUhf_K1GubGgta0IeIIAgiCFdduzBt22wGk0kmmW6kEP-7G1dUu_s-3HPuPTcHoq0yNBB0b5jJMKd5wS3tU-p9n22p8W40R9Hq4Dk9J5M75QW-0J5H7Z3gQvE43qO25l45q1R22X5iUa2-bU2c943K1W7W0o9D7t-42Jv8L_kYwH5sR_5WjR-r15_L3d_tT54TDPB5_dM6R5s1_iV7n5_K_a-u7rO_T8A_I-g_K-l_T8R_K-l_T9j-o_G_k-jO-D4h_8P-D9h-oP9P-j9j-kP-P-h-D9h-IP-B-h-IP-B-D9D-o_G_8B_I_Wv2w" alt="Evaluation Flowchart">
 
-## ⚙️ How to Run the Project
+---
 
-To run this project, you will need Python and the following libraries: `pandas`, `numpy`, `scikit-learn`, `matplotlib`, and `seaborn`.
+## ⚙️ Setup
 
-1.  **Clone the repository**:
-    ```bash
-    git clone [https://github.com/ChitviJoshi/Post_Recommendation_System.git](https://github.com/ChitviJoshi/Post_Recommendation_System.git)
-    ```
-2.  **Install the required libraries**:
-    ```bash
-    pip install pandas numpy scikit-learn matplotlib seaborn
-    ```
-3.  **Place the datasets (`Users.csv`, `Posts.csv`, `Engagements.csv`)** in the root directory of the project.
-4.  **Run the Jupyter Notebook**: Open and run the `Post_Recommendation_System.ipynb` notebook to see the full analysis and generate the recommendations.
+To run this project, you will need Python and the libraries listed in `requirements.txt`.
+
+1.  **Clone the repository**.
+2.  **Place the original datasets** (`Users.csv`, `Posts.csv`, `Engagements.csv`) into the `data/` directory.
+3.  **Install dependencies**: `pip install -r requirements.txt` (You may need to create this file).
+4.  **Run the Jupyter Notebook**: Open and execute the `post_recommendation_system.ipynb` to see the full analysis and generate the output files.
+
+---
+
+## 📁 Project Structure
+
+```
+submission/
+├── post_recommendation_system.ipynb      # Main notebook with all code and analysis
+├── README.md                             # This overview file
+├── visualizations/                       # Directory for all generated PNG files
+│   ├── EDA.png
+│   ├── eval_results.png
+│   ├── interest_coherence.png
+│   ├── model_compr.png
+│   └── user_exploration.png
+├── outputs/                              # Directory for all generated CSV files
+│   ├── recommendations_output.csv
+│   ├── user_profiles_enhanced.csv
+│   └── summary_statistics.csv
+└── data/                                 # Directory for the original datasets
+    ├── Users.csv
+    ├── Posts.csv
+    └── Engagements.csv
+```
+
+---
 
 ## 🔮 Future Extensions
 
-This project provides a strong foundation. Here are some potential extensions:
+- **v1.1** - Incorporate Collaborative Filtering to leverage "similar user" data.
+- **v1.2** - Use advanced NLP (e.g., Word2Vec) for semantic understanding of tags.
+- **v2.0** - Deploy the model as a REST API and build a simple web interface for live recommendations.
 
-* **Collaborative Filtering**: Incorporate techniques to recommend posts based on the behavior of similar users.
-* **Content Embeddings**: Use advanced NLP (e.g., Word2Vec, BERT) for a more nuanced understanding of content similarity.
-* **Dynamic Weighting**: Adjust the scoring weights based on user segments (e.g., give "Power Explorers" a higher discovery weight).
-* **A/B Testing**: Deploy the model in a live test to measure its impact on key business metrics like user engagement and retention.
+---
+<div align="center">
 
+*This project was created as part of an ML internship application.*
+
+</div>
