@@ -1,8 +1,8 @@
-## Post Recommendation System
+# Post Recommendation System
 
 <div align="center">
 
-*"Connecting Users with Content, Intelligently"*
+##*"Connecting Users with Content, Intelligently"*
 
 </div>
 
