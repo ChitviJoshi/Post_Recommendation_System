@@ -59,8 +59,8 @@ The final recommendation engine is a hybrid model that calculates a `final_score
 
 The model's performance was evaluated on two key metrics that go beyond simple accuracy:
 
-* **Discovery Rate (33.3%)**: This metric measures the percentage of recommended posts that fall outside a user's explicitly stated interests.
-* **Catalog Coverage (77.0%)**: This represents the percentage of all available posts that are recommended to at least one user.
+* **Discovery Rate (13.3%)**: This metric measures the percentage of recommended posts that fall outside a user's explicitly stated interests.
+* **Catalog Coverage (30.0%)**: This represents the percentage of all available posts that are recommended to at least one user.
 
 ### Evaluation Flowchart
 
