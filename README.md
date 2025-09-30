@@ -46,7 +46,7 @@ The core logic of the project is broken down into several key stages:
                │
                ▼
 ┌───────────────────────────────────┐
-│   Exploratory Data Analysis (EDA)   │
+│   Exploratory Data Analysis (EDA) │
 └───────────────────────────────────┘
                │
                ▼
