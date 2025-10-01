@@ -2,7 +2,7 @@
 
 <div align="center">
 
-## *"Connecting Users with Content They'll Actually Engage With"*
+## *"Connecting Users with Content, Intelligently"*
 
 </div>
 
@@ -44,7 +44,7 @@ Think Spotify recommendations - mostly your vibe, occasionally something new tha
 | **Catalog Coverage** | 30.0% | 30/100 posts recommended (quality-first approach) |
 
 ### The Most Interesting Finding 🎵
-Audio content dominated recommendations (39.3%) despite being only 12% of the catalog. Why? **The model learned that audio posts have 65% engagement vs 52% for images**. It figured out quality on its own!
+Audio content dominated recommendations (39.3%) despite being only 12% of the catalog. Why? **The model learned that audio posts have 65% engagement vs 52% for images**. 
 
 ---
 
@@ -136,7 +136,6 @@ Tested 3 approaches on tag diversity:
 ```
 submission/
 ├── post_recommendation_system.ipynb      # Full implementation + analysis
-├── technical_report.pdf                  # 2-page methodology explanation
 ├── README.md                             # You are here!
 ├── visualizations/                       
 │   ├── EDA.png                          # Dataset exploration
@@ -171,23 +170,8 @@ If I had more time (or this was going to production), I'd add:
 
 ### Production-ready (v2.0)
 - **A/B testing framework**: Test different weight combinations
-- **FAISS for speed**: Sub-millisecond similarity search
 - **Two-stage retrieval**: Fast candidate generation → precise re-ranking
 - **REST API deployment**: Real-time recommendations via endpoint
-
----
-
-## 📝 Technical Approach Summary
-
-**Problem**: Recommend 3 posts per user balancing relevance and discovery
-
-**Data**: 50 users, 100 posts, 1000 engagements (50% engagement rate)
-
-**Solution**: Hybrid model combining content similarity (TF-IDF + cosine), popularity (engagement rates), and discovery (new tag ratio)
-
-**Results**: 0.579 average final score with 13.3% discovery and 30% coverage
-
-**Key Insight**: Audio content's over-representation (39.3% of recs) shows the model autonomously learned quality patterns
 
 ---
 
@@ -199,7 +183,7 @@ Created as part of an ML internship application. The task was to build a recomme
 - Real-world recommendation systems need more than just accuracy
 - Discovery vs relevance is a constant tradeoff
 - Sometimes "low" coverage (30%) is actually smart (quality-first)
-- Audio content crushes it on this platform 🎧
+- Audio content crushes it on this platform 
 
 ---
 
@@ -207,6 +191,6 @@ Created as part of an ML internship application. The task was to build a recomme
 
 **Questions?** Check the technical report for detailed methodology, or dive into the notebook for the full implementation!
 
-*Built with ❤️ and lots of sklearn*
+*Built with lots of sklearn*
 
 </div>
